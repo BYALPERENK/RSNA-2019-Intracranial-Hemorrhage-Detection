@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ich"
+version = "0.1.0"
+description = "RSNA Intracranial Hemorrhage Detection: slice CNNs and study-level sequence models for CT hemorrhage subtypes"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

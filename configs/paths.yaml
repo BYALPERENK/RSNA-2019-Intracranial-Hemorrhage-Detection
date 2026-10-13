@@ -1,0 +1,7 @@
+# Paths are relative to the repository root (absolute paths also work).
+# Raw data lives outside the repo so it is never committed.
+raw_data_dir: ../data/raw/rsna-intracranial-hemorrhage-detection
+processed_data_dir: ../data/processed
+external_data_dir: ../data/external
+models_dir: models
+outputs_dir: outputs
