@@ -1,5 +1,6 @@
 # Paths are relative to the repository root (absolute paths also work).
 # Raw data lives outside the repo so it is never committed.
+# To use other locations on one machine, put the same keys in configs/paths.local.yaml (not tracked by git).
 raw_data_dir: ../data/raw/rsna-intracranial-hemorrhage-detection
 processed_data_dir: ../data/processed
 external_data_dir: ../data/external

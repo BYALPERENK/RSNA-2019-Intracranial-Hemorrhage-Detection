@@ -10,6 +10,7 @@
 *.ckpt
 *.onnx
 *.zip
+configs/paths.local.yaml
 
 # --- Experiment tracking ---
 wandb/
