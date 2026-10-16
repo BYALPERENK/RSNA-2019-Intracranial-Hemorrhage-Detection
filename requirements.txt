@@ -8,6 +8,7 @@ opencv-python>=5.0
 scikit-learn>=1.9
 scipy>=1.17
 joblib>=1.6
+lightgbm>=4.7
 tqdm>=4.70
 pyyaml>=6.0
 jupyter>=1.1
