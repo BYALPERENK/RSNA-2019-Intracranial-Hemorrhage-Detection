@@ -1,13 +1,11 @@
 numpy>=2.4
 pandas>=3.0
 matplotlib>=3.11
-seaborn>=0.13
 pydicom>=3.0
 pillow>=12.3
 opencv-python>=5.0
 scikit-learn>=1.9
 scipy>=1.17
-joblib>=1.6
 lightgbm>=4.7
 tqdm>=4.70
 pyyaml>=6.0

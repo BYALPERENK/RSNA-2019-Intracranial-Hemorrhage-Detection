@@ -93,6 +93,7 @@ Data preparation (notebooks 01–02):
 ```bash
 python scripts/extract_dicom_headers.py
 python scripts/prepare_data.py
+python scripts/benchmark_storage.py
 python scripts/build_crop_store.py --boxes slice256
 ```
 
