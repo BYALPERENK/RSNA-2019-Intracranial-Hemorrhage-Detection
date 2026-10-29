@@ -35,8 +35,8 @@ def series_boxes(slices: pd.DataFrame, margin: int = MARGIN) -> pd.DataFrame:
 def slice_boxes(slices: pd.DataFrame, margin: int = MARGIN, min_side: int = 0) -> pd.DataFrame:
     """One square box per slice around its own head box (the variant of 04, 5), aligned with `slices`.
 
-    The scale changes along the scan. With adjacent slices as channels, the box of the centre slice cuts all of them,
-    so the channels stay aligned. Slices without a head box get the box of their series. A box smaller than
+    The scale changes along the scan. With adjacent slices as channels, the box of the centre slice cuts all of them
+    on the fly, so the channels stay aligned; the cropped store cuts every slice by its own box. Slices without a head box get the box of their series. A box smaller than
     `min_side` grows to it around the same centre.
     """
     side = np.maximum(slices["head_bottom"] - slices["head_top"], slices["head_right"] - slices["head_left"]) + 2 * margin

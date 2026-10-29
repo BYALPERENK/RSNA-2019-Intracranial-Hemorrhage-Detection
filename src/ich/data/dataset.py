@@ -5,9 +5,11 @@ below and above it (2.5D), as a tensor of shape (n slices, size, size). Windows 
 (`ich.training`). The Dataset class lives here, not in a notebook: on Windows the loader workers must import it.
 
 Two sources:
-- the cropped training store (png16_crop256/), already cut to the box of the series;
-- the full images (png16/), cropped on the fly when boxes are given. Validation and test always use this one
-  so that they are read as the real test images are.
+- a cropped store (png16_crop256/ or png16_slice256/, scripts/build_crop_store.py), every slice already cut to its
+  own box and resized to 256; read at 256 px in training and in the validation of screening runs. With the slice box
+  and neighbours as channels, each neighbour then has its own box, not the box of the centre slice;
+- the full images (png16/), cropped on the fly when boxes are given, all channels with the box of the centre slice.
+  Final models are validated, and the test images read, from this one.
 """
 from pathlib import Path
 

@@ -18,7 +18,7 @@ Private leaderboard, late submissions:
 
 For scale, the final leaderboard of 2019: 1st 0.04383, 2nd 0.04484, 10th 0.04712, 50th 0.05473. The final file lies between the 1st and the 2nd place. These are late submissions, not ranks in the competition.
 
-Out of fold (5 folds, labels of their position; notebook 03 explains the setup):
+Out of fold (5 folds, the kept slices with the labels of their position, as explained in notebook 03; in brackets the 95% patient-bootstrap interval):
 
 | Model | Score |
 |---|---:|
@@ -62,7 +62,7 @@ Where the gap is:
 ```
 notebooks/        the numbered notebooks; figures/ holds their diagrams
 src/ich/          the package: data (DICOM, slice table, crops, datasets), models, metric, submission, training
-scripts/          data preparation, training and prediction (the notebooks read their outputs)
+scripts/          data preparation, training, prediction and the final submission (the notebooks read their outputs)
 tests/            unit tests of the package
 configs/          paths.yaml: where the data, models and outputs live
 models/           trained weights (not tracked)
@@ -110,9 +110,15 @@ python scripts/fit_temperature.py --name is_cx_logits_fk
 python scripts/fit_temperature.py --name is_mv_logits_fk
 ```
 
-The sequence models are trained with seeds 0, 1 and 2. On one RTX 5090 the slice models and their features take about a day for all five folds, the sequence models a few hours. Notebook 05 writes the final submission (`outputs/submissions/05_seq10_bigru_T.csv.gz`); notebook 06 writes the files of its comparison.
+The sequence models are trained with seeds 0, 1 and 2 (`_s0`, `_s1`, `_s2`; `fit_temperature.py` reads all three). On one RTX 5090 the slice models and their features take about a day for all five folds, the sequence models a few hours. The final submission (`outputs/submissions/05_seq10_bigru_T.csv.gz`) is written from these runs alone:
 
-The notebooks train nothing: they read the saved runs. Notebooks 04–06 also read the screening runs on fold 0; the settings of every run are in `outputs/runs/RUN/config.json` and `outputs/seq_runs/RUN/config.json`.
+```bash
+python scripts/make_submission.py
+```
+
+Notebook 05 writes the same file, notebook 06 the files of its comparison.
+
+The notebooks train no neural network (notebook 03 fits its tabular baselines): they read the saved runs. Notebooks 04–06 also read the screening runs on fold 0; the settings of every run are in `outputs/runs/RUN/config.json` and `outputs/seq_runs/RUN/config.json`.
 
 ## Tests
 

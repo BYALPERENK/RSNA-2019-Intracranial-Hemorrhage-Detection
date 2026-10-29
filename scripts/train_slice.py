@@ -12,6 +12,9 @@ Usage: python scripts/train_slice.py --name NAME [--fold 0] [--backbone seresnex
   decisions). From the cropped store when the setup matches it (its files equal the crops made on the fly, checked
   once for every slice of fold 0); otherwise, and always with --val-full (final models), from the full images cropped
   on the fly, as the test images are read.
+- The store holds every slice cut to its own box. With `--crop slice256 --slices 3` at 256 px the neighbours are
+  therefore cut by their own boxes, while on the fly all three channels are cut by the box of the centre slice
+  (04, section 5). The series box is the same for all slices of a series, so it is not affected.
 
 Writes outputs/runs/NAME/: config.json, log.csv (one row per epoch), val.csv (the validation slices in prediction
 order), val_epoch<k>.npy (probabilities), writers.csv, inputs.png (the first training batch, for a visual check) and,
