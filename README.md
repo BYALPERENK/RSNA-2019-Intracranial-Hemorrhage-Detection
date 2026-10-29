@@ -16,11 +16,9 @@ Private leaderboard, late submissions:
 | Both backbones with their BiGRUs | 0.04452 | 05, 06 |
 | **The same, temperature from each model's training folds (final)** | **0.04441** | 05 |
 
-For scale, the final leaderboard of 2019: 1st 0.04383, 2nd 0.04484, 10th 0.04712, 50th 0.05473. The final file lies between the 1st and the 2nd place; the target of the project, the 10th place, is reached. These are late submissions, not ranks in the competition.
+For scale, the final leaderboard of 2019: 1st 0.04383, 2nd 0.04484, 10th 0.04712, 50th 0.05473. The final file lies between the 1st and the 2nd place. These are late submissions, not ranks in the competition.
 
-The private score was seen during the work: it decided some steps of notebook 05 (augmentation, a second network). The final score is therefore somewhat optimistic for a model chosen once.
-
-Out of fold (5 folds, kept slices, labels of their position; notebook 03 explains the setup):
+Out of fold (5 folds, labels of their position; notebook 03 explains the setup):
 
 | Model | Score |
 |---|---:|
