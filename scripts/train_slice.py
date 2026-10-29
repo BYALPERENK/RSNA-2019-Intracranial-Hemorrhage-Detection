@@ -11,7 +11,7 @@ Usage: python scripts/train_slice.py --name NAME [--fold 0] [--backbone seresnex
   their own labels; the AUROC of each label on the kept slices is logged beside them (for information, not for
   decisions). From the cropped store when the setup matches it (its files equal the crops made on the fly, checked
   once for every slice of fold 0); otherwise, and always with --val-full (final models), from the full images cropped
-  on the fly, as the test images are read (user decision, 2026-10-16).
+  on the fly, as the test images are read.
 
 Writes outputs/runs/NAME/: config.json, log.csv (one row per epoch), val.csv (the validation slices in prediction
 order), val_epoch<k>.npy (probabilities), writers.csv, inputs.png (the first training batch, for a visual check) and,

@@ -1,5 +1,5 @@
-"""Test-time augmentation of slice models (04_slice_models, 9): every test slice mirrored left to right, the flip of
-training, read once and passed through all the given models. Reading the images is the slow part, not the models.
+"""Test-time augmentation of slice models (05_sequence_models, sections 5 and 7): every test slice mirrored left to
+right, the flip of training, read once and passed through all the given models. Reading the images is the slow part, not the models.
 
 Usage: python scripts/predict_test_flip.py --runs RUN [RUN ...] [--batch 64] [--workers 12]
 

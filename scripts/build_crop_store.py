@@ -10,7 +10,7 @@ least MIN_SIDE pixels (`slice_boxes`):
 
 The store makes screening faster: training and its validation read it, because its files equal the crops made on the
 fly; at the end every slice of fold 0 is checked for it. Final models are validated, and test images are read, from the full images in png16/ cropped on the fly with the
-same function (user decision, 2026-10-16).
+same function.
 """
 import argparse
 import os

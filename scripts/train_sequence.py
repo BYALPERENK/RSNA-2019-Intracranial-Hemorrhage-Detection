@@ -6,13 +6,13 @@ Usage: python scripts/train_sequence.py --name NAME --cnn RUN [RUN...] [--source
        [--batch 64] [--lr 1e-3] [--warmup 0.5] [--two-branch] [--reverse 0.5] [--subsample 0.5] [--reverse-tta]
        [--seed 0] [--stop 0.1] [--resume]
 
-- Features from scripts/extract_features.py (outputs/features/RUN/). `--source insample` (base, plan of 05): training
+- Features from scripts/extract_features.py (outputs/features/RUN/). `--source insample` (the setup of 05): training
   on the CNN's own training folds ("train" part), validation on its fold ("oof" part); nothing in the pipeline saw
   the validation patients. `--source oofcv`: only the CNN's out-of-fold features of its fold, which the CNN never
   saw; the fold is split by patient into 5 inner folds, one sequence model per inner fold trains on the other four
   and predicts its own, so every series of the fold is predicted by a model that did not see it. Test: the mean of
   the models.
-  `--source pooled` (base, plan draft 4): `--cnn` names the five fold models; the out-of-fold features of all of them
+  `--source pooled`: `--cnn` names the five fold models; the out-of-fold features of all of them
   form one table, and for every fold k in `--folds` one sequence model trains on the other folds (each slice with
   the features of the CNN that did not see it) and predicts fold k from the features of CNN_k. Test: the model of
   fold k on the test features of CNN_k, mean over the folds.
@@ -379,5 +379,5 @@ def main():
 
 if __name__ == "__main__":
     # On Windows the process ends with 0xC0000409 after main() has returned and every output is written (also with
-    # os._exit or TerminateProcess, 2026-10-19). Scripts that chain runs check for models/seq_NAME.pt, not the exit code.
+    # os._exit or TerminateProcess). Scripts that chain runs check for models/seq_NAME.pt, not the exit code.
     main()

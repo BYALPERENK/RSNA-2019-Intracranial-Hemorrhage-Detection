@@ -7,7 +7,7 @@ below and above it (2.5D), as a tensor of shape (n slices, size, size). Windows 
 Two sources:
 - the cropped training store (png16_crop256/), already cut to the box of the series;
 - the full images (png16/), cropped on the fly when boxes are given. Validation and test always use this one
-  (user decision, 2026-10-16), so they are read as the real test images are.
+  so that they are read as the real test images are.
 """
 from pathlib import Path
 
